@@ -23,6 +23,8 @@ const reducer = (state = initialState, action) => {
   console.log("state now: ", state);
   console.log("action", action);
   switch (action.type) {
+    case "NEW_ANEC":
+      return [...state, action.payload];
     case "VOTE":
       const id = action.payload.id;
       const anecToChange = state.find((a) => a.id === id);
@@ -40,6 +42,13 @@ export const vote = (id) => {
   return {
     type: "VOTE",
     payload: { id },
+  };
+};
+
+export const newAnec = (content) => {
+  return {
+    type: "NEW_ANEC",
+    payload: { content, id: getId(), votes: 0 },
   };
 };
 
