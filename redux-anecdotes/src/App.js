@@ -13,10 +13,14 @@ const App = () => {
     dispatch(newAnec(content));
   };
 
+  function compareNumbers(a, b) {
+    return b.votes - a.votes;
+  }
+
   return (
     <div>
       <h2>Anecdotes</h2>
-      {anecdotes.map((anecdote) => (
+      {anecdotes.sort(compareNumbers).map((anecdote) => (
         <div key={anecdote.id}>
           <div>{anecdote.content}</div>
           <div>
