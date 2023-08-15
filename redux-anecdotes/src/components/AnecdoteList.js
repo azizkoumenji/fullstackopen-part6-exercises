@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { vote } from "../reducers/anecdoteReducer";
 
 const AnecdoteList = () => {
-  let anecdotes = useSelector((state) => state.anecdotes);
+  const anecdotesUnordered = useSelector((state) => state.anecdotes);
   const filter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
@@ -10,7 +10,7 @@ const AnecdoteList = () => {
     return b.votes - a.votes;
   }
 
-  anecdotes = anecdotes.sort(compareNumbers);
+  let anecdotes = [...anecdotesUnordered].sort(compareNumbers);
   const regex = new RegExp(filter, "i");
   anecdotes = anecdotes.filter((object) => regex.test(object.content));
   return (
