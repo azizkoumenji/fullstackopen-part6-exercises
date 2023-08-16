@@ -1,36 +1,3 @@
-/*const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "NEW_ANEC":
-      return [...state, action.payload];
-    case "VOTE":
-      const id = action.payload.id;
-      const anecToChange = state.find((a) => a.id === id);
-      const changedAnec = {
-        ...anecToChange,
-        votes: anecToChange.votes + 1,
-      };
-      return state.map((anec) => (anec.id !== id ? anec : changedAnec));
-    default:
-      return state;
-  }
-};
-
-export const vote = (id) => {
-  return {
-    type: "VOTE",
-    payload: { id },
-  };
-};
-
-export const newAnec = (content) => {
-  return {
-    type: "NEW_ANEC",
-    payload: { content, id: getId(), votes: 0 },
-  };
-};
-
-export default reducer;*/
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const anecdotesAtStart = [
