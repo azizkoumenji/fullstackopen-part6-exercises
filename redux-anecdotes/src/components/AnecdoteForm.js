@@ -10,10 +10,7 @@ const AnecdoteForm = () => {
     const content = event.target.anec.value;
     event.target.anec.value = "";
     dispatch(createAnec(content));
-    dispatch(setNotification(`You submitted "${content}"`));
-    setTimeout(() => {
-      dispatch(setNotification(""));
-    }, 5000);
+    dispatch(setNotification(`You submitted "${content}"`, 5));
   };
 
   return (
